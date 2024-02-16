@@ -1,5 +1,6 @@
 import 'package:commerce_app/utils/color.dart';
 import 'package:commerce_app/utils/exports.dart';
+import 'package:commerce_app/views/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         // useMaterial3: true,
         
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      home: const Splash(),
     );
   }
 }

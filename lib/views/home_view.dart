@@ -89,6 +89,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView.separated(
           shrinkWrap: true,
           itemCount: popularDiets.length,
+          physics: NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20),
           separatorBuilder: (context, index) => SizedBox(
             height: 20,
@@ -279,33 +280,41 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(10),
-                  height: 50,
-                  width: 125,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          recommendations[index].isVied
-                              ? colorBlue
-                              : Colors.transparent,
-                          recommendations[index].isVied
-                              ? colorPurple
-                              : Colors.transparent,
-                        ]),
-                  ),
-                  child: Text(
-                    "View",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: recommendations[index].isVied
-                            ? Colors.white
-                            : colorPink.withOpacity(0.9)),
+                GestureDetector(
+                  // onLongPress: (){},
+                  // onTap: (){
+                  //   setState(() {
+                  //     recommendations[index].isVied = !recommendations[index].isVied;
+                  //   });
+                  // },
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(10),
+                    height: 50,
+                    width: 125,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            recommendations[index].isVied
+                                ? colorBlue
+                                : Colors.transparent,
+                            recommendations[index].isVied
+                                ? colorPurple
+                                : Colors.transparent,
+                          ]),
+                    ),
+                    child: Text(
+                      "View",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: recommendations[index].isVied
+                              ? Colors.white
+                              : colorPink.withOpacity(0.9)),
+                    ),
                   ),
                 ),
               ],
